@@ -29,21 +29,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PostFileOnFTPServiceC = new System.ServiceProcess.ServiceInstaller();
+            this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
+            this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
             // 
-            // PostFileOnFTPService
+            // serviceProcessInstaller1
             // 
-            this.PostFileOnFTPServiceC.Description = "PostFileOnFTPServiceC";
-            this.PostFileOnFTPServiceC.DisplayName = "PostFileOnFTPServiceC";
-            this.PostFileOnFTPServiceC.ServiceName = "PostFileOnFTPServiceC";
+
+            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.serviceProcessInstaller1.Password = null;
+            this.serviceProcessInstaller1.Username = null;
+
+            // 
+            // serviceInstaller1
+            // 
+            //this.serviceInstaller1.Description = "PostFileOnFTPServiceWindow";
+            this.serviceInstaller1.DisplayName = "PostFileOnFTPServiceWindow";
+            this.serviceInstaller1.ServiceName = "PostFileOnFTPServiceWindow";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+
+
             // 
             // ServiceInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.PostFileOnFTPServiceC});
+            this.serviceProcessInstaller1,
+            this.serviceInstaller1});
 
         }
 
         #endregion
+
+        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
+        private System.ServiceProcess.ServiceInstaller serviceInstaller1;
     }
 }
